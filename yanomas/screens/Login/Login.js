@@ -3,7 +3,7 @@ import { StyleSheet, View, SafeAreaView } from 'react-native'
 import { Button, Avatar, Text, TextInput } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-export default function Login() {
+export default function Login({ navigation }) {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     return (
@@ -24,10 +24,10 @@ export default function Login() {
                     value={password}
                     onChangeText={text => setPassword(text)}
                 />
-                <Button style={styles.buttons} icon="alert-circle" mode="contained" onPress={() => console.log('Pressed')}>
+                <Button style={styles.buttons} icon="alert-circle" mode="contained" onPress={() => navigation.navigate("MainScreen")}>
                    Login
                 </Button>
-                <Button style={styles.buttons} icon="alert-circle" mode="elevated" onPress={() => console.log('Pressed')}>
+                <Button style={styles.buttons} icon="alert-circle" mode="elevated" onPress={() => navigation.navigate("Register")}>
                     Register
                 </Button>
             </View>

@@ -10,7 +10,7 @@ import MapView, { Marker } from 'react-native-maps'
 export default function CustomMarker() {
     return (
         <View style={styles.marker}>
-            <Text style={styles.color}>Tokyo</Text>
+            <Text style={styles.color}>reporte</Text>
         </View>
     );
 }

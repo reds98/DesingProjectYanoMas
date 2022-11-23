@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
-import Circle from './screens/Circle/Circle';
-import Home from './screens/Home/Home';
-import Information from './screens/Information/Information';
-import MapScreen from './screens/Map/MapScreen';
-import Config from './screens/Config/Config';
-import Login from './screens/Login/Login';
-import Register from './screens/Register/Register';
+import Circle from './Circle/Circle';
+import Home from './Home/Home';
+import Information from './Information/Information';
+import MapScreen from './Map/MapScreen';
+import Config from './Config/Config';
+import Login from './Login/Login';
+import Register from './Register/Register';
 const MainScreen = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
@@ -18,14 +18,12 @@ const MainScreen = () => {
 
     // { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'circular-graph' },
   ]);
-
   const renderScene = BottomNavigation.SceneMap({
     home: Home,
     circle: Circle,
     map: MapScreen,
     info: Information,
-    config:Register
-    
+    config:Config
   });
 
   return (
