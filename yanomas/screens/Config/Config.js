@@ -3,8 +3,10 @@ import { StyleSheet, View, SafeAreaView } from "react-native";
 import { Button, Avatar, Text, Checkbox } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from '@react-navigation/native';
 
-export default function Config({ navigation }) {
+export default function Config({  }) {
+  const navigation = useNavigation();
   return (
     <SafeAreaProvider style={styles.container}>
       <View style={styles.avatarInfo}>
@@ -17,9 +19,18 @@ export default function Config({ navigation }) {
           style={styles.buttons}
           icon="alert-circle"
           mode="contained"
-          onPress={() => {
-            AsyncStorage.clear().then(()=>{navigation.navigate("Login");});
-          }}
+          onPress={
+            async () => {
+              try {
+                await AsyncStorage.removeItem('user')
+                navigation.navigate("Login")
+              } catch(e) {
+                console.log("ERROR",e)
+              }
+            
+              console.log('Done.')
+          }
+        }
         >
           LogOut
         </Button>

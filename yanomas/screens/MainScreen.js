@@ -7,14 +7,14 @@ import MapScreen from './Map/MapScreen';
 import Config from './Config/Config';
 import Login from './Login/Login';
 import Register from './Register/Register';
-const MainScreen = () => {
+const MainScreen = ({navigation}) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', title: 'Home', focusedIcon: 'home-alert',unfocusedIcon: 'home-alert-outline' },
+    { key: 'home', title: 'Home', focusedIcon: 'home-alert',unfocusedIcon: 'home-alert-outline', },
     { key: 'circle', title: 'Circle', focusedIcon: 'heart-circle',unfocusedIcon: 'heart-circle-outline' },
     { key: 'map', title: 'Map', focusedIcon: 'map',unfocusedIcon: 'map-outline' },
     { key: 'info', title: 'Information', focusedIcon: 'newspaper-variant', unfocusedIcon: 'newspaper-variant-outline'},
-    { key: 'config', title: 'Config', focusedIcon: 'account-cog',unfocusedIcon: 'account-cog-outline' },
+    { key: 'config', title: 'Config', focusedIcon: 'account-cog',unfocusedIcon: 'account-cog-outline' ,},
 
     // { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'circular-graph' },
   ]);

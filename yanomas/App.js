@@ -7,11 +7,19 @@ import Login from "./screens/Login/Login";
 import Register from "./screens/Register/Register";
 import MainScreen from "./screens/MainScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { ToastProvider } from "react-native-paper-toast";
+import {
+  initialWindowMetrics,
+  SafeAreaProvider,
+} from "react-native-safe-area-context";
+import { RootSiblingParent } from 'react-native-root-siblings';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <RootSiblingParent> 
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator options={{ headerShown: false }}>
@@ -31,6 +39,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
+    </RootSiblingParent>
   );
 }
 

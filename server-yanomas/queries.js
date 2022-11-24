@@ -42,6 +42,18 @@ const getUsers = (request, response) => {
       response.status(200).json(results.rows)
     })
   }
+
+  const getUserByIdAndPassword = (request, response) => {
+    const {correo,password} = request.body
+  
+    pool.query(`SELECT * FROM public.usuario WHERE correo = $1 and password =$2 ;`, [correo,password],(error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+  
   const createUser = (request, response) => {
     console.log("BODY",request.body)
     const { dni,name, correo,password,phone_number } = request.body
@@ -75,4 +87,5 @@ const getUsers = (request, response) => {
     getUserById,
     createUser,
     createAlert,
+    getUserByIdAndPassword
   }
